@@ -1,0 +1,17 @@
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    width: 100%;
+    font-size: 1.2em;
+    bottom: 0px;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-link{
+    text-decoration: none;
+    color: white;
+}

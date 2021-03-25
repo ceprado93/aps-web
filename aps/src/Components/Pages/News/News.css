@@ -1,0 +1,14 @@
+.newsSection{
+    width: 100%;
+    padding-top: 80px;
+    min-height: calc(100vh - 104px);
+}
+
+h1{
+    color: black;
+}
+
+.news-card img {
+    height: 150px;
+    object-fit: cover;
+}

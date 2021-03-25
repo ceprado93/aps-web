@@ -1,0 +1,22 @@
+.mediasection{
+    width: 100%;
+    padding-top: 80px;
+    min-height: calc(100vh - 104px);
+}
+
+h1{
+    color: black;
+}
+
+.video-card{
+    margin-bottom: 40px;
+}
+
+.video-card img {
+    height: 150px;
+    object-fit: cover;
+}
+
+.video-card h3{
+    width: 100%;
+}
