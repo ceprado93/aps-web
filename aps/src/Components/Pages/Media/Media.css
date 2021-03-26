@@ -4,6 +4,12 @@
     min-height: calc(100vh - 104px);
 }
 
+.videoSection{
+    width: 100%;
+    padding-top: 60px;
+    min-height: calc(100vh - 104px);
+}
+
 h1{
     color: black;
 }
@@ -13,7 +19,7 @@ h1{
 }
 
 .video-card img {
-    height: 150px;
+    height: 200px;
     object-fit: cover;
 }
 

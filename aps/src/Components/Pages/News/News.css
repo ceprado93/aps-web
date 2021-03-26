@@ -8,7 +8,11 @@ h1{
     color: black;
 }
 
+.news-card{
+    margin-bottom: 40px;
+}
+
 .news-card img {
-    height: 150px;
+    height: 200px;
     object-fit: cover;
 }

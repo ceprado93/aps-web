@@ -11,6 +11,8 @@ class NewsService {
 
     getNews = () => this.api.get(`/`)
     getLatest = () => this.api.get(`/latest`)
+    getAllLatest = () => this.api.get(`/allLatest`)
+    getOne = newsId => this.api.get(`/details/${newsId}`)
     saveNews = newsDetails => this.api.post('/new', newsDetails)
     editNews = (newsId, newsDetails) => this.api.put(`/edit/${newsId}`, newsDetails)
     deleteNews = (newsId) => this.api.delete(`/delete/${newsId}`)

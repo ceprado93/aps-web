@@ -12,7 +12,7 @@ const VideoCard = ({ title, videoURL, _id, Author, user_id }) => {
                 <Card.Img variant="top" src={`https://i.ytimg.com/vi/${videoURL}/sddefault.jpg`} />
                 <Card.Body>
                     <h5>{title}</h5>
-                    <Link to={`/detalles/${_id}`} className="btn btn-dark btn-sm btn-block">Ver detalles</Link>
+                    <Link to={`/video/${videoURL}`} className="btn btn-dark btn-sm btn-block">Ver detalles</Link>
                 </Card.Body>
             </Card>
         </Col>

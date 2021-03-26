@@ -5,6 +5,8 @@ import Signup from '../Pages/Signup/Signup'
 import News from '../Pages/News/News'
 import Video from '../Pages/Media/Video'
 import Media from '../Pages/Media/Media'
+import NewsDetails from '../Pages/News/NewsDetails'
+import Contact from '../Pages/Contact/Contact'
 
 
 
@@ -20,10 +22,10 @@ const Routes = ({ storeUser, loggedUser, isAdmin, handleAlert }) => {
                 <Route path="/login" exact render={props => <Login storeUser={storeUser}  {...props} />} />
                 <Route path="/signup" exact render={() => <Signup />} />
                 <Route path="/news" exact render={props => <News {...props} loggedUser={loggedUser} />} />
-                <Route path="/video" exact render={() => <Video />} />
+                <Route path="/news/:id" exact render={props => <NewsDetails {...props} loggedUser={loggedUser} />} />
+                <Route path="/video/:videoURL" exact render={props => <Video {...props} />} />
                 <Route path="/media" exact render={() => <Media loggedUser={loggedUser} />} />
-
-
+                <Route path="/contact" exact render={() => <Contact />} />
 
             </Switch>
         </>

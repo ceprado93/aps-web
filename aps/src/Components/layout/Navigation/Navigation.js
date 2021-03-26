@@ -70,13 +70,9 @@ const Navigation = ({ storeUser, loggedUser, isAdmin }) => {
                                 </>
                             :
                             <>
-                                <NavLink to="/login">
-                                    <Nav.Link as="span" className={changeClass ? "navb filled" : "link-color"}>Log in</Nav.Link>
+                                <NavLink to="/contact">
+                                    <Nav.Link as="span" className={changeClass ? "navb filled" : "link-color"}>Contact</Nav.Link>
                                 </NavLink>
-                                <NavLink to="/signup">
-                                    <Nav.Link as="span" className={changeClass ? "navb filled" : "link-color"}>Sign up</Nav.Link>
-                                </NavLink>
-
                             </>
                     }
                 </Nav>

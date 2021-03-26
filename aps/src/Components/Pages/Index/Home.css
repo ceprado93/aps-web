@@ -104,6 +104,12 @@
     flex-direction: column;
     justify-content: space-evenly;}
 
+    @media (max-width: 1130px){
+        .second-section img{
+            width: 80%;
+        }
+    }
+
 @media (max-width: 991px) {
     .second-section {
         height: 1100px; 
