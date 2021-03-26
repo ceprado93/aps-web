@@ -20,14 +20,16 @@ router.get('/latest', (req, res) => {
 })
 
 router.get('/allLatest', (req, res) => {
-    const promise1 = News.find().sort('-createdAt').limit(6)
-    const promise2 = Video.find().sort('-createdAt').limit(6)
+    const promise1 = News.find().sort('createdAt').limit(6)
+    const promise2 = Video.find().sort('createdAt').limit(6)
     let arr
 
 
     Promise.all([promise1, promise2])
         .then(response => {
-            arr = response.flat().sort().slice(0, 6)
+            arr = response.flat().sort(function (a, b) {
+                return new Date(b.createdAt) - new Date(a.createdAt)
+            }).slice(0, 6)
             console.log(arr)
             res.json(arr)
         })
@@ -49,13 +51,14 @@ router.post('/new', (req, res) => {
         .catch(err => res.status(500).json({ code: 500, message: 'Error saving News', err }))
 })
 
-router.put('/edit/:news_id', checkLoggedIn, (req, res) => {
+router.put('/edit/:news_id', (req, res) => {
+    console.log(req.params.news_id)
     News.findByIdAndUpdate(req.params.news_id, req.body)
         .then(response => res.json(response))
         .catch(err => res.status(500).json({ code: 500, message: 'Error editing News', err }))
 })
 
-router.delete('/delete/:news_id', checkLoggedIn, (req, res) => {
+router.delete('/delete/:news_id', (req, res) => {
     News.findByIdAndRemove(req.params.news_id)
         .then(response => res.json(response))
         .catch(err => res.status(500).json({ code: 500, message: 'Error saving News', err }))

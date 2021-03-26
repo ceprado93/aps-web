@@ -21,10 +21,10 @@ const Routes = ({ storeUser, loggedUser, isAdmin, handleAlert }) => {
                 <Route path="/" exact render={props => <IndexPage loggedUser={loggedUser} storeUser={storeUser}  {...props} />} />
                 <Route path="/login" exact render={props => <Login storeUser={storeUser}  {...props} />} />
                 <Route path="/signup" exact render={() => <Signup />} />
-                <Route path="/news" exact render={props => <News {...props} loggedUser={loggedUser} />} />
-                <Route path="/news/:id" exact render={props => <NewsDetails {...props} loggedUser={loggedUser} />} />
-                <Route path="/video/:videoURL" exact render={props => <Video {...props} />} />
-                <Route path="/media" exact render={() => <Media loggedUser={loggedUser} />} />
+                <Route path="/news" exact render={props => <News {...props} loggedUser={loggedUser} handleAlert={handleAlert} />} />
+                <Route path="/news/:id" exact render={props => <NewsDetails {...props} loggedUser={loggedUser} handleAlert={handleAlert} />} />
+                <Route path="/video/:videoURL" exact render={props => <Video {...props} handleAlert={handleAlert} />} />
+                <Route path="/media" exact render={() => <Media loggedUser={loggedUser} handleAlert={handleAlert} />} />
                 <Route path="/contact" exact render={() => <Contact />} />
 
             </Switch>

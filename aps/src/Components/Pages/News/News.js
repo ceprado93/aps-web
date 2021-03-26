@@ -51,10 +51,10 @@ class News extends Component {
 
                 <Modal show={this.state.showForm} onHide={() => this.togglemodalForm(false)}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Nueva montaña rusa</Modal.Title>
+                        <Modal.Title>Nueva noticia</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <NewsForm closeModal={() => this.togglemodalForm(false)} refreshList={() => this.loadNews()} handleAlert={this.props.handleAlert} />
+                        <NewsForm closeModal={() => this.togglemodalForm(false)} refreshList={() => this.loadNews()} modalType="New" news={this.state?.news} handleAlert={this.props.handleAlert} />
                     </Modal.Body>
                 </Modal>
 

@@ -6,7 +6,7 @@ import NewsForm from './NewsForm'
 import './News.css'
 
 
-class WaveDetails extends Component {
+class NewsDetails extends Component {
 
     constructor() {
         super()
@@ -84,7 +84,7 @@ class WaveDetails extends Component {
 
                             <Modal show={this.state.showForm} onHide={() => this.togglemodalForm(false)} size='xl'>
                                 <Modal.Header closeButton>
-                                    <Modal.Title>Edit wave</Modal.Title>
+                                    <Modal.Title>Edit news</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
                                     <NewsForm closeModal={() => this.togglemodalForm(false)} news={this.state?.news} modalType="Edit" refreshList={() => this.loadNews()} handleAlert={this.props.handleAlert} />
@@ -100,4 +100,4 @@ class WaveDetails extends Component {
     }
 }
 
-export default WaveDetails
+export default NewsDetails

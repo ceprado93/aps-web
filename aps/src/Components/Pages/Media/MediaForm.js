@@ -34,7 +34,7 @@ class CoasterForm extends Component {
             .then(() => {
                 this.props.closeModal()
                 this.props.refreshList()
-                this.props.handleAlert(true, 'Registro guardado', 'Se ha guardado la montaña rusa en nuestra Base de Datos')
+                this.props.handleAlert(true, 'Video subido', 'Se ha guardado el video en nuestra Base de Datos')
             })
             .catch(err => console.log(err))
     }

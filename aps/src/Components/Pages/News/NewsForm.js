@@ -3,15 +3,16 @@ import NewsService from '../../../Service/news.service'
 
 import { Form, Button, Container } from 'react-bootstrap'
 
-class CoasterForm extends Component {
+class NewsForm extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             news: {
-                title: '',
-                description: '',
-                image: ''
+                title: this.props.news?.title || '',
+                description: this.props.news?.description || '',
+                image: this.props.news?.image || '',
+                id: this.props.news?._id || ''
             },
             isUploading: false
         }
@@ -24,16 +25,42 @@ class CoasterForm extends Component {
         this.setState({ news: { ...this.state.news, [name]: value } })
     }
 
-    handleSubmit(e) {
+    // handleSubmit(e) {
+
+    //     e.preventDefault()
+
+    //     this.newsService
+    //         .saveNews(this.state.news)
+    //         .then(() => {
+    //             this.props.closeModal()
+    //             this.props.refreshList()
+    //             this.props.handleAlert(true, 'Noticia guardada', 'Se ha guardado la noticia en nuestra Base de Datos')
+    //         })
+    //         .catch(err => console.log(err))
+    // }
+
+
+    handleEdit(e) {
+        e.preventDefault()
+        this.newsService
+            .editNews(this.state.news.id, this.state.news)
+            .then(() => {
+                this.props.closeModal()
+                this.props.refreshList()
+                this.props.handleAlert(true, 'Edicion guardada', 'Se ha guardado la noticia en nuestra Base de Datos')
+            })
+            .catch(err => console.log(err))
+    }
+
+    handleNew(e) {
 
         e.preventDefault()
-
         this.newsService
             .saveNews(this.state.news)
             .then(() => {
                 this.props.closeModal()
                 this.props.refreshList()
-                this.props.handleAlert(true, 'Registro guardado', 'Se ha guardado la montaña rusa en nuestra Base de Datos')
+                this.props.handleAlert(true, 'Noticia guardada', 'Se ha guardado la noticia en nuestra Base de Datos')
             })
             .catch(err => console.log(err))
     }
@@ -62,26 +89,29 @@ class CoasterForm extends Component {
         return (
             <Container>
 
-                <Form onSubmit={e => this.handleSubmit(e)}>
+                <Form onSubmit={(e) => e.preventDefault()}>
                     <Form.Group>
                         <Form.Label>Título</Form.Label>
-                        <Form.Control type="text" name="title" value={this.state.title} onChange={e => this.handleInputChange(e)} />
+                        <Form.Control type="text" name="title" value={this.state.news.title} onChange={e => this.handleInputChange(e)} />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Descripción</Form.Label>
-                        <Form.Control type="text" name="description" value={this.state.description} onChange={e => this.handleInputChange(e)} />
+                        <Form.Control type="text" name="description" value={this.state.news.description} onChange={e => this.handleInputChange(e)} />
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Imagen (URL)</Form.Label>
-                        <Form.Control type="text" name="image" value={this.state.imageUrl} onChange={e => this.handleInputChange(e)} />
+                        <Form.Control type="text" name="image" value={this.state.news.image} onChange={e => this.handleInputChange(e)} />
                     </Form.Group>
                     {/* <Form.Group>
                         <Form.Label>Imagen (File) </Form.Label>
                         <Form.Control type="file" name="image" onChange={e => this.handleFileUpload(e)} />
                     </Form.Group> */}
-                    <Button variant="dark" block type="submit" disabled={this.state.isUploading}>{this.state.isUploading ? 'Espere, subiendo...' : 'Crear montaña rusa'}</Button>
-                </Form>
+                    {this.props.modalType === 'New'
+                        ?
+                        <Button variant="dark" block type="submit" onClick={e => this.handleNew(e)}>Nueva noticia</Button>
+                        :
+                        <Button variant="dark" block type="submit" onClick={e => this.handleEdit(e)}> Editar noticia</Button>}                </Form>
             </Container>
         )
     }
@@ -89,4 +119,4 @@ class CoasterForm extends Component {
 
 
 
-export default CoasterForm
+export default NewsForm

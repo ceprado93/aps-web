@@ -58,11 +58,11 @@ const IndexPage = ({ loggedUser }) => {
                 {news ? <Container >
                     <Row>
                         <Col md={3} lg={4} className="firstNews" style={{ paddingLeft: 0 }}>
-                            <Link to={`/news/${news && news[news.length - 1]._id}`} className="indexLink">{news && news[news.length - 1].title}</Link>
-                            <p>{news && news[news.length - 1].description}</p>
+                            <Link to={`/news/${news && news[0]._id}`} className="indexLink">{news && news[0].title}</Link>
+                            <Link to={`/news/${news && news[0]._id}`} ><p>{news && news[0].description}</p></Link>
                         </Col>
                         <Col md={{ span: 7, offset: 2 }} lg={{ span: 8, offset: 0 }} >
-                            <img src={news && news[news.length - 1].image} alt="newsImage" />
+                            <Link to={`/news/${news && news[0]._id}`} className="indexLink"><img src={news && news[0].image} alt="newsImage" /></Link>
                         </Col>
                     </Row>
                 </Container> : <Container> <Spinner style={{ display: 'block', margin: '100px auto' }} animation="border" variant="dark" /></Container>}
