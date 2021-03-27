@@ -58,7 +58,10 @@ const IndexPage = ({ loggedUser }) => {
                 {news ? <Container >
                     <Row>
                         <Col md={3} lg={4} className="firstNews" style={{ paddingLeft: 0 }}>
-                            <Link to={`/news/${news && news[0]._id}`} className="indexLink">{news && news[0].title}</Link>
+                            <div>
+                                <p style={{ color: 'red' }}>News</p>
+                                <Link to={`/news/${news && news[0]._id}`} className="indexLink">{news && news[0].title}</Link>
+                            </div>
                             <Link to={`/news/${news && news[0]._id}`} ><p>{news && news[0].description}</p></Link>
                         </Col>
                         <Col md={{ span: 7, offset: 2 }} lg={{ span: 8, offset: 0 }} >
@@ -88,7 +91,7 @@ const IndexPage = ({ loggedUser }) => {
 
             <section className="third-section">
                 <Container>
-                    <h2>Lo ultimo</h2>
+                    <h2>Lo último</h2>
                     {all?.map(elm =>
                         <Row key={elm._id}>
                             <Col md={{ span: 5, offset: 1 }} style={{ marginBottom: 30 }}>
