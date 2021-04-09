@@ -3,7 +3,6 @@ const router = express.Router()
 const News = require('../models/news.model')
 const Video = require('../models/video.model')
 const User = require('../models/user.model')
-const { checkLoggedIn } = require('./../middlewares')
 
 router.get('/', (req, res) => {
     News.find()

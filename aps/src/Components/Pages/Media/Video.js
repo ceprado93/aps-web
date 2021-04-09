@@ -36,7 +36,7 @@ const Video = props => {
         width: '100%',
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
-            autoplay: 1,
+            autoplay: 0,
         },
     }
 
@@ -46,7 +46,7 @@ const Video = props => {
                 <Container>
                     <Row>
                         <Col md={{ span: 10, offset: 1 }}>
-                            <h1>Videos</h1>
+                            <h1>How it works</h1>
                             <Link to={`/media`} className="btn btn-outline-dark" style={{ marginBottom: 20 }}>Back to media</Link>
                             <VideoWrapper>
                                 <YouTube videoId={props.match.params.videoURL} opts={opts} onReady={onReady} />
